@@ -147,15 +147,15 @@
 			
 			$isNumeric = preg_match('/(int|decimal)/', $typeMap[$fieldType]);
 			
-			$tableColumns[] = trim(sprintf("`%s` %s%s %s %s %s %s",
+			$tableColumns[] = sprintf("`%s` %s%s%s%s%s%s",
 				$fieldName,
 				$typeMap[$fieldType],
 				($fieldLength != '' ? "({$fieldLength})" : ''),
-				(!$isSigned && $isNumeric ? 'unsigned' : ''),
-				($isNullable ? '' : 'NOT NULL'),
-				($fieldDefault != '' ? "DEFAULT '{$fieldDefault}'" : ''),
-				($isAutoIncrement ? 'AUTO_INCREMENT' : '')
-			));
+				(!$isSigned && $isNumeric ? ' unsigned' : ''),
+				($isNullable ? '' : ' NOT NULL'),
+				($fieldDefault != '' ? " DEFAULT '{$fieldDefault}'" : ''),
+				($isAutoIncrement ? ' AUTO_INCREMENT' : '')
+			);
 		}
 		
 	}
