@@ -1,0 +1,18 @@
+user
+	*+bi:user_id
+	v100:email
+	c32:password
+	dt:create date
+	dt:update date
+
+post
+	*+bi:post_id
+	v255:title
+	v100:uri
+	t:text
+	ti1(0):publish
+	dt:publish date
+	dt:create date
+	dt:update date
+
+
