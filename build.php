@@ -137,7 +137,7 @@
 			
 			if ($fixDecimal) {
 				$bits = explode('.', $fieldLength);
-				$fieldLength = ($bits[0] + $bits[1]) .'.'. $bits[1];
+				$fieldLength = ($bits[0] + $bits[1]) .','. $bits[1];
 			}
 			
 			if (!isset($typeMap[$fieldType])) {
