@@ -1,16 +1,20 @@
+#define id *+bi
+#define hash c32
+#define bool ti1(0)
+
 user
-	*+bi:user_id
+	id:user_id
 	v100:email
-	c32:password
+	hash:password
 	dt:create date
 	dt:update date
 
 post
-	*+bi:post_id
+	id:post_id
 	v255:title
 	v100:uri
 	t:text
-	ti1(0):publish
+	bool:publish
 	dt:publish date
 	dt:create date
 	dt:update date
