@@ -41,7 +41,6 @@
 			
 			$colonPos = strpos($line, ':');
 			if ($colonPos === false) {
-				d("Invalid type for column '{$line}'");
 				return false;
 			}
 			
@@ -201,6 +200,11 @@
 		elseif ($line[0] == "\t") {
 			$line = trim($line);
 			$column = ColumnInfo::fromString($line);
+			
+			if (!$column) {
+				d("/* Invalid column info for line '{$line}'. */");
+				break;
+			}
 			
 			if ($column->isPrimaryKey) {
 				$primaryKeyName = $column->name;
