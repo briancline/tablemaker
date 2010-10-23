@@ -113,7 +113,7 @@
 			
 			if (!isset($typeMap[$column->type])) {
 				d("ERROR: No such column type {$column->type}! ({$line})");
-				break;
+				return null;
 			}
 			
 			$column->type = $typeMap[$column->type];
