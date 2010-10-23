@@ -99,7 +99,7 @@ A simple database with a `user` table might have one such spec file:
     	hash:password
     	v30:first name
     	v30:last name
-    	-credit:credits
+    	-credit(50):credits
     	-d5.4:average
     	dt:create date
 
@@ -112,7 +112,7 @@ When compiled by the `build.php` script, the resulting SQL is generated:
     	`password` char(32) NOT NULL,
     	`first_name` varchar(30) NOT NULL,
     	`last_name` varchar(30) NOT NULL,
-    	`credits` bigint NOT NULL,
+    	`credits` bigint NOT NULL DEFAULT '50',
     	`average` decimal(9,4) NOT NULL,
     	`create_date` datetime NOT NULL,
     	PRIMARY KEY (`user_id`)
