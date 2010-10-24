@@ -88,10 +88,25 @@ non-macro types within the same table and modifiers within the same line.
 ## Examples
 A simple database with a `user` table might have one such spec file:
 
+    user
+    	*+bi:user id
+    	v50:email
+    	c32:password
+    	v30:first name
+    	v30:last name
+    	-i(50):credits
+    	-d5.4:average
+    	dt:create date
+
+With a few macros we can standardize what constitutes an auto-incrementing
+primary key ID column, a password hash, email address, and a hypothetical 
+credit count, so these definitions can be used across other tables and easily
+modified across the entire database later:
+
     #define id *+bi
     #define hash c32
     #define email v50
-    #define credit bi
+    #define credit i
     
     user
     	id:user id
@@ -112,7 +127,7 @@ When compiled by the `build.php` script, the resulting SQL is generated:
     	`password` char(32) NOT NULL,
     	`first_name` varchar(30) NOT NULL,
     	`last_name` varchar(30) NOT NULL,
-    	`credits` bigint NOT NULL DEFAULT '50',
+    	`credits` int NOT NULL DEFAULT '50',
     	`average` decimal(9,4) NOT NULL,
     	`create_date` datetime NOT NULL,
     	PRIMARY KEY (`user_id`)
